@@ -7,6 +7,7 @@ from datetime import datetime
 name = "building-image-g5k-rennes"
 clusters = "paradoxe"
 site = "rennes"
+duration = "03:00:00"
 name_job = name + clusters
 prod_network = en.G5kNetworkConf(type="prod", roles=["my_network"], site=site)
 
