@@ -7,14 +7,14 @@ from datetime import datetime
 en.set_config(ansible_forks=100)
 
 name = "building-image-g5k-rennes"
-clusters = "paradoxe"
+clusters = "parasilo"
 site = "rennes"
 duration = "03:00:00"
 name_job = name + clusters
 prod_network = en.G5kNetworkConf(type="prod", roles=["my_network"], site=site)
 
 
-pool = [f"paradoxe-{i}.rennes.grid5000.fr" for i in range(33, 49)]
+pool = [f"parasilo-{i}.rennes.grid5000.fr" for i in range(33, 49)]
 
 conf = (
     en.G5kConf.from_settings(job_type=[], job_name=name_job, walltime=duration)
