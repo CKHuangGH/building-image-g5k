@@ -19,8 +19,7 @@ conf = (
     )
     .add_machine(
     roles=["role0"], cluster=clusters, nodes=1, primary_network=prod_network
-    )
-    .finalize()
+    ).finalize()
 )
 provider = en.G5k(conf)
 provider.destroy()
