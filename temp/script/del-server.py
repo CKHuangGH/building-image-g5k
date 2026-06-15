@@ -6,7 +6,7 @@ from datetime import datetime
 
 en.set_config(ansible_forks=100)
 
-name = "building-image-g5k-rennes-2"
+name = "building-image-g5k-rennes"
 clusters = "parasilo"
 site = "rennes"
 duration = "03:00:00"

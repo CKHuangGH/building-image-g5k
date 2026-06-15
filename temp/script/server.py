@@ -6,7 +6,7 @@ from datetime import datetime
 
 en.set_config(ansible_forks=100)
 
-name = "building-image-g5k-rennes-2"
+name = "building-image-g5k-rennes"
 clusters = "parasilo"
 site = "rennes"
 duration = "03:00:00"
@@ -24,4 +24,21 @@ conf = (
     .finalize()
 )
 provider = en.G5k(conf)
-provider.destroy()
+roles, networks = provider.init()
+roles = en.sync_info(roles, networks)
+print(provider)
+print(roles)
+print(networks)
+
+# === Save physical host and network info for reuse ===
+with open("reserved_management.json", "w") as f:
+    f.write(jsonpickle.encode(roles))
+
+with open("reserved_management_networks.json", "w") as f:
+    f.write(jsonpickle.encode(networks))
+    
+for i in range(30, 0, -1):
+    print(f"Remaining: {i} seconds")
+    time.sleep(1)
+
+print("Reservation management: physical nodes and network configuration.")
