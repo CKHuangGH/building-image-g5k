@@ -20,7 +20,7 @@ cp = 1
 print(list(subnet[0].free_macs)[1:2])
 
 virt_conf = (
-    en.VMonG5kConf.from_settings(image="/grid5000/virt-images/debian13-x64-min.qcow2")
+    en.VMonG5kConf.from_settings(image="/grid5000/virt-images/debian11-x64-min.qcow2")
     .add_machine(
         roles=["cp"],
         number=cp,
@@ -38,7 +38,7 @@ inventory_file = "kubefed_inventory_redeploy.ini"
 inventory = generate_inventory(vmroles, networks, inventory_file)
 
 # === Wait for VMs to boot ===
-for i in range(45, 0, -1):
+for i in range(60, 0, -1):
     print(f"Remaining: {i} seconds")
     time.sleep(1)
 
