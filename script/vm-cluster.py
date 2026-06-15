@@ -20,7 +20,7 @@ cp = 1
 print(list(subnet[0].free_macs)[1:2])
 
 virt_conf = (
-    en.VMonG5kConf.from_settings(image="/grid5000/virt-images/debian13-x64-min.qcow2")
+    en.VMonG5kConf.from_settings(image="/grid5000/virt-images/debian13-x64-big.qcow2")
     .add_machine(
         roles=["cp"],
         number=cp,
