@@ -1,8 +1,3 @@
-# Switch to the root user.
-# All commands below are executed with root privileges.
-sudo -i
-
-
 # Update the package index and upgrade installed packages.
 apt-get update
 apt-get upgrade -y
