@@ -41,7 +41,7 @@ roles = en.sync_info(roles, networks)
 subnet = networks["my_subnet"]
 
 cp = 1
-w1 = config["vm"]["worker"]["number"]
+# w1 = config["vm"]["worker"]["number"]
 
 for i in range(1):
     start = i * (cp + w1)

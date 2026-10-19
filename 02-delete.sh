@@ -6,7 +6,7 @@ number_clusters=$(awk -F '=' '/^number_k8s/ {gsub(/[[:space:]]/, "", $2); print 
 for ((i=0; i<number_clusters; i++)); do
     suffix=$(printf "%02d" "$i")
 
-    echo "Deleting cluster ${suffix}......"
+    echo "Deleting VM ${suffix}......"
 
     python3 ./delete-vm.py "$suffix" &
     
@@ -15,4 +15,4 @@ done
 
 wait
 
-echo "All Kubernetes clusters have been deleted."
+echo "All VM have been deleted."
