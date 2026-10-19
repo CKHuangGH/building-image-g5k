@@ -44,7 +44,7 @@ cp = 1
 # w1 = config["vm"]["worker"]["number"]
 
 for i in range(1):
-    start = i * (cp + w1)
+    start = i * (cp)
     virt_conf = (
         en.VMonG5kConf.from_settings(image = config["vm"]["image"])
         .add_machine(
