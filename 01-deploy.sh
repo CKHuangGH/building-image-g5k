@@ -3,21 +3,21 @@ set -e
 
 number_clusters=$(awk -F '=' '/^number_k8s/ {gsub(/[[:space:]]/, "", $2); print $2}' 00-config.toml)
 
-echo "Creating Kubernetes clusters......"
+echo "Creating VM......"
 
 for ((i=0; i<number_clusters; i++)); do
     suffix=$(printf "%02d" "$i")
 
-    echo "Starting cluster ${suffix}......"
+    echo "Starting VM ${suffix}......"
 
-    python3 create-cluster.py "$suffix" &
+    python3 create-vm.py "$suffix" &
     echo "Wait for 8 Secs"
     sleep 8
 done
 
 wait
 
-echo "All Kubernetes clusters have been created."
+echo "All VM have been created."
 
 total=60
 for ((elapsed=0; elapsed<=total; elapsed++)); do
@@ -32,4 +32,4 @@ for ((elapsed=0; elapsed<=total; elapsed++)); do
 done
 
 echo
-echo "Kubernetes clusters are ready......"
+echo "VM isready......"

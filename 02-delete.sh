@@ -8,7 +8,7 @@ for ((i=0; i<number_clusters; i++)); do
 
     echo "Deleting cluster ${suffix}......"
 
-    python3 ./delete-cluster.py "$suffix" &
+    python3 ./delete-vm.py "$suffix" &
     
 	sleep 1
 done
