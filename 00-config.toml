@@ -1,0 +1,16 @@
+[g5k]
+site = "rennes"
+cluster = "parasilo"
+duration = "03:00:00"
+number_servers = 1
+
+[vm]
+image = "/grid5000/virt-images/debian13-x64-min.qcow2"
+
+[vm.control_plane]
+cpu = 8
+memory = 16384
+
+[deployment]
+number_k8s = 1
+wait_before_ansible = 45

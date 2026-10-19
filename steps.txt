@@ -1,0 +1,13 @@
+pip uninstall enoslib
+pip install -U git+https://gitlab.inria.fr/discovery/enoslib
+
+qemu-img convert -O qcow2 virtual-158-20-1 full-enos_vmong5k.qcow2
+qemu-img convert -O qcow2 -c full-enos_vmong5k.qcow2 full-enos_vmong5k-compressed.qcow2
+
+qemu-img info original.qcow2  # check the size (should be 10GB)
+qemu-img resize original.qcow2 +30G
+virt-resize --expand /dev/sda1 original.qcow2 my-image.qcow2
+rm original.qcow2
+virt-filesystems –long -h –all -a my-image.qcow2
+
+scp chuang@parasilo-6:/var/lib/libvirt/images/enos_vmong5k/full-enos_vmong5k-compressed.qcow2 /home/chuang/images
