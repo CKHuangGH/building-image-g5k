@@ -5,15 +5,10 @@ apt-get upgrade -y
 
 # Install basic utilities used during installation and troubleshooting.
 apt-get install -y \
-  vim \
   wget \
   git \
   net-tools \
   jq
-
-# Disable mouse support in Vim for the root user.
-echo 'set mouse=' >> ~/.vimrc
-
 
 # Kubernetes normally expects swap to be disabled.
 # Disable it now and prevent it from being enabled again after reboot.

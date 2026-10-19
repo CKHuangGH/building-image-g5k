@@ -1,3 +1,6 @@
+apt-get install -y
+echo 'set mouse=' >> ~/.vimrc
+
 pip uninstall enoslib
 pip install -U git+https://gitlab.inria.fr/discovery/enoslib
 
